@@ -16,6 +16,7 @@
 @interface SimpleTableViewController ()
 
 @property (nonatomic, strong) NSArray *location;
+@property (nonatomic, strong) NSArray *locationsorted;
 
 @end
 
@@ -31,10 +32,34 @@
     [self loadVenues];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector( appActivated: )
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+    
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self ];
+}
+
+
+- (void)appActivated:(NSNotification *)note
+{
+    [self loadVenues];
+}
+
 - (void)configureRestKit
 {
     // initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
+    NSURL *baseURL = [NSURL URLWithString:@"http://navdetails.herokuapp.com"];
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     
     // initialize RestKit
@@ -48,7 +73,7 @@
     RKResponseDescriptor *responseDescriptor =
     [RKResponseDescriptor responseDescriptorWithMapping:locationMapping
                                                  method:RKRequestMethodGET
-                                            pathPattern:@"/MutualFundSnapShot/rest/products"
+                                            pathPattern:@"/rest/products"
                                                 keyPath:@""
                                             statusCodes:[NSIndexSet indexSetWithIndex:200]];
     
@@ -59,7 +84,7 @@
 {
     NSDictionary *queryParams = @{};
     
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MutualFundSnapShot/rest/products"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/rest/products"
                                            parameters:queryParams
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   _location = mappingResult.array;
@@ -68,6 +93,11 @@
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   NSLog(@"What do you mean by 'there is no coffee?': %@", error);
                                               }];
+    _location = [_location sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSString *first = [(Location*)a customSchemeName];
+        NSString *second = [(Location*)b customSchemeName];
+        return [first compare:second];
+    }];
 }
 
 
@@ -99,11 +129,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
-//    if (indexPath.row > 0) {
-//        NSIndexPath *path = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
-//        [tableView reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
-//    }
+
     
     Location *venue = _location[indexPath.row];
     
