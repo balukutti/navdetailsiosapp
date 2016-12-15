@@ -18,8 +18,6 @@
 		14CFED201DCED96700D5CA42 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CFED1F1DCED96700D5CA42 /* CustomCell.xib */; };
 		BDA9677141706A9FAFE0295E /* libPods-SimpleTable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5617E58221289F333F6D5DC1 /* libPods-SimpleTable.a */; };
 		F479E159155E3E99005C48B1 /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F479E158155E3E99005C48B1 /* recipes.plist */; };
-		F479E1641571FC25005C48B1 /* MyLaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F479E1621571FC24005C48B1 /* MyLaunchImage.png */; };
-		F479E1651571FC25005C48B1 /* MyLaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F479E1631571FC25005C48B1 /* MyLaunchImage@2x.png */; };
 		F4DBB63C154C41F300904C6A /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DBB63B154C41F300904C6A /* SimpleTableCell.m */; };
 		F4DBB63E154CC10B00904C6A /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DBB63D154CC10B00904C6A /* SimpleTableCell.xib */; };
 		F4FFD305153BF3E800759785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FFD304153BF3E800759785 /* UIKit.framework */; };
@@ -48,12 +46,10 @@
 		20ABE73D8A6AB1CD619EC2DF /* Pods-SimpleTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTable.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTable/Pods-SimpleTable.release.xcconfig"; sourceTree = "<group>"; };
 		5617E58221289F333F6D5DC1 /* libPods-SimpleTable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleTable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F479E158155E3E99005C48B1 /* recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = recipes.plist; sourceTree = "<group>"; };
-		F479E1621571FC24005C48B1 /* MyLaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyLaunchImage.png; sourceTree = "<group>"; };
-		F479E1631571FC25005C48B1 /* MyLaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyLaunchImage@2x.png"; sourceTree = "<group>"; };
 		F4DBB63A154C41F300904C6A /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
 		F4DBB63B154C41F300904C6A /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
 		F4DBB63D154CC10B00904C6A /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
-		F4FFD300153BF3E800759785 /* SimpleTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4FFD300153BF3E800759785 /* My Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Money.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FFD304153BF3E800759785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4FFD306153BF3E800759785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4FFD308153BF3E800759785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,8 +96,6 @@
 		F4FFD2F5153BF3E800759785 = {
 			isa = PBXGroup;
 			children = (
-				F479E1621571FC24005C48B1 /* MyLaunchImage.png */,
-				F479E1631571FC25005C48B1 /* MyLaunchImage@2x.png */,
 				F4FFD30A153BF3E800759785 /* SimpleTable */,
 				F4FFD303153BF3E800759785 /* Frameworks */,
 				F4FFD301153BF3E800759785 /* Products */,
@@ -112,7 +106,7 @@
 		F4FFD301153BF3E800759785 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4FFD300153BF3E800759785 /* SimpleTable.app */,
+				F4FFD300153BF3E800759785 /* My Money.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,7 +181,7 @@
 			);
 			name = SimpleTable;
 			productName = SimpleTable;
-			productReference = F4FFD300153BF3E800759785 /* SimpleTable.app */;
+			productReference = F4FFD300153BF3E800759785 /* My Money.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -232,8 +226,6 @@
 				F4FFD31B153BF3E900759785 /* SimpleTableViewController.xib in Resources */,
 				F4DBB63E154CC10B00904C6A /* SimpleTableCell.xib in Resources */,
 				F479E159155E3E99005C48B1 /* recipes.plist in Resources */,
-				F479E1641571FC25005C48B1 /* MyLaunchImage.png in Resources */,
-				F479E1651571FC25005C48B1 /* MyLaunchImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +364,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 089630674D629F998811E4A9 /* Pods-SimpleTable.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C9UTN67NLS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleTable/SimpleTable-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -386,7 +380,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 				);
 				INFOPLIST_FILE = "SimpleTable/SimpleTable-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Money";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -397,8 +391,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 20ABE73D8A6AB1CD619EC2DF /* Pods-SimpleTable.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C9UTN67NLS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleTable/SimpleTable-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -411,7 +407,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 				);
 				INFOPLIST_FILE = "SimpleTable/SimpleTable-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Money";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
