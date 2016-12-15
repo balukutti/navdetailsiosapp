@@ -149,10 +149,31 @@
         cell.profitLoss.textColor = [Location colorFromHex:@"006633"];
     }
     
-    _amountInvested.text = [NSString stringWithFormat:@"Amount Invested  :  Rs. %@", venue.totalInvestedAmount];
-    _amountValue.text = [NSString stringWithFormat:@"Valuation Amount :  Rs. %@", venue.totalCurrentAmount];
-    
-
+    if([venue.totalCurrentAmount doubleValue] > [venue.totalInvestedAmount doubleValue])
+    {
+        _amountValue.textColor  = [UIColor greenColor];
+        
+        NSString *profitAmount= [NSString stringWithFormat:@"%.2lf", [venue.totalCurrentAmount doubleValue] - [venue.totalCurrentAmount doubleValue]];
+        
+        NSString *formattedProfitAmountString = @" (";
+        formattedProfitAmountString = [formattedProfitAmountString stringByAppendingString: profitAmount];
+        formattedProfitAmountString = [formattedProfitAmountString stringByAppendingString: @")"];
+        
+        _amountInvested.text = [NSString stringWithFormat:@"Amount Invested  :  Rs. %@", venue.totalInvestedAmount];
+        _amountValue.text = [NSString stringWithFormat:@"Valuation Amount :  Rs. %@", [venue.totalCurrentAmount stringByAppendingString:formattedProfitAmountString]];
+    }
+    else
+    {
+        _amountValue.textColor  = [UIColor redColor];
+        NSString *lossAmount= [NSString stringWithFormat:@"%.2lf", [venue.totalInvestedAmount doubleValue] - [venue.totalCurrentAmount doubleValue]];
+        
+        NSString *formattedLossAmountString = @" (";
+        formattedLossAmountString = [formattedLossAmountString stringByAppendingString: lossAmount];
+        formattedLossAmountString = [formattedLossAmountString stringByAppendingString: @")"];
+        
+        _amountInvested.text = [NSString stringWithFormat:@"Amount Invested  :  Rs. %@", venue.totalInvestedAmount];
+        _amountValue.text = [NSString stringWithFormat:@"Valuation Amount :  Rs. %@", [venue.totalCurrentAmount stringByAppendingString: formattedLossAmountString]];
+    }
     return cell;
 }
 
