@@ -59,7 +59,7 @@
 - (void)configureRestKit
 {
     // initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"http://navdetails.herokuapp.com"];
+    NSURL *baseURL = [NSURL URLWithString:@"http://www.growmyworth.info"];
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     
     // initialize RestKit
