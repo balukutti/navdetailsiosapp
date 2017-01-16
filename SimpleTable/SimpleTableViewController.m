@@ -66,8 +66,7 @@
     RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
     
     RKObjectMapping *locationMapping = [RKObjectMapping mappingForClass:[Location class]];
-    [locationMapping addAttributeMappingsFromArray:@[@"date", @"isin", @"nav", @"schemeCode", @"schemeName", @"customSchemeName", @"amountInvested", @"currentAmount", @"totalInvestedAmount", @"totalCurrentAmount",
-                                                     @"profitLossPercentage"]];
+    [locationMapping addAttributeMappingsFromArray:@[@"date", @"isin", @"nav", @"schemeCode", @"schemeName", @"customSchemeName", @"amountInvested", @"currentAmount", @"totalInvestedAmount", @"totalCurrentAmount", @"profitLossPercentage"]];
     
     // register mappings with the provider using a response descriptor
     RKResponseDescriptor *responseDescriptor =
@@ -116,6 +115,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"LENGTH IS: %lu", (unsigned long)[_location count]);
     return [_location count];
 }
 
@@ -153,7 +153,7 @@
     {
         _amountValue.textColor  = [UIColor greenColor];
         
-        NSString *profitAmount= [NSString stringWithFormat:@"%.2lf", [venue.totalCurrentAmount doubleValue] - [venue.totalCurrentAmount doubleValue]];
+        NSString *profitAmount= [NSString stringWithFormat:@"%.2lf", [venue.totalCurrentAmount doubleValue] - [venue.totalInvestedAmount doubleValue]];
         
         NSString *formattedProfitAmountString = @" (";
         formattedProfitAmountString = [formattedProfitAmountString stringByAppendingString: profitAmount];
